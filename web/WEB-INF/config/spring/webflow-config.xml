@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/webflow-config
-       http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.0.xsd
+       http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd
        http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
@@ -13,9 +13,23 @@
                 </flow:flow-execution-listeners>-->
     </flow:flow-executor>
 
-    <flow:flow-registry id="mainFlowRegistry">
+    <flow:flow-registry id="mainFlowRegistry" flow-builder-services="flowBuilderServices">
         <flow:flow-location id="main" path="/WEB-INF/flows/main-flow.xml"/>
     </flow:flow-registry>
+
+    <flow:flow-builder-services id="flowBuilderServices" view-factory-creator="mvcViewFactoryCreator"/>
+
+    <!--    <bean id="mvcViewFactoryCreator" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
+            <property name="viewResolvers" ref="jspViewResolver"/>
+        </bean>-->
+
+    <bean id="mvcViewFactoryCreator" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
+        <property name="viewResolvers">
+            <list>
+                <ref bean="jspViewResolver"/>
+            </list>
+        </property>
+    </bean>
 
 
 </beans>

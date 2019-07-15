@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <beans:bean id="flowHandlerMapping" class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
@@ -11,4 +11,16 @@
     <beans:bean id="flowHandlerAdapter" class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
         <beans:property name="flowExecutor" ref="mainFlowExecutor"/>
     </beans:bean>
+
+    <!--    <beans:bean id="jspViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+            <beans:property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+            <beans:property name="prefix" value="/WEB-INF/views/"/>
+            <beans:property name="suffix" value=".jsp"/>
+        </beans:bean>-->
+
+    <beans:bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <beans:property name="prefix" value="/WEB-INF/views/"/>
+        <beans:property name="suffix" value=".jsp"/>
+    </beans:bean>
+
 </beans:beans>
