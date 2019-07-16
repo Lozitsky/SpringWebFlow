@@ -2,10 +2,24 @@
 <flow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xmlns="http://www.springframework.org/schema/webflow"
       xsi:schemaLocation="http://www.springframework.org/schema/webflow
-      http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+      http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+      start-state="home">
 
-<!--    <view-state id="home" view="/WEB-INF/views/home.jsp"/>-->
+    <!--    <view-state id="home" view="/WEB-INF/views/home.jsp"/>-->
 
-    <view-state id="home"/>
+    <view-state id="home">
+        <transition on="mainPage" to="main"/>
+    </view-state>
+
+    <view-state id="main">
+        <transition on="homePage" to="home"/>
+        <transition on="cancelPage" to="cancel"/>
+    </view-state>
+
+<!--    <end-state id="cancel_">
+
+    </end-state>-->
+
+    <end-state id="cancel" view="cancel"/>
 
 </flow>

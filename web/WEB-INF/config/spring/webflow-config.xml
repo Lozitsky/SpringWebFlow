@@ -14,7 +14,7 @@
     </flow:flow-executor>
 
     <flow:flow-registry id="mainFlowRegistry" flow-builder-services="flowBuilderServices">
-        <flow:flow-location id="main" path="/WEB-INF/flows/main-flow.xml"/>
+        <flow:flow-location id="home" path="/WEB-INF/flows/main-flow.xml"/>
     </flow:flow-registry>
 
     <flow:flow-builder-services id="flowBuilderServices" view-factory-creator="mvcViewFactoryCreator"/>
