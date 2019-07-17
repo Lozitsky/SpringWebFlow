@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns:flow="http://www.springframework.org/schema/webflow-config"
+<beans:beans xmlns="http://www.springframework.org/schema/webflow-config"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:beans="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/webflow-config
        http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd
        http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <flow:flow-executor id="mainFlowExecutor" flow-registry="mainFlowRegistry">
+    <flow-executor id="mainFlowExecutor" flow-registry="mainFlowRegistry">
         <!--        <flow:flow-execution-listeners>
                     <flow:listener ref="" criteria="*"/>
                 </flow:flow-execution-listeners>-->
-    </flow:flow-executor>
+    </flow-executor>
 
-    <flow:flow-registry id="mainFlowRegistry" flow-builder-services="flowBuilderServices">
-        <flow:flow-location id="home" path="/WEB-INF/flows/main-flow.xml"/>
-    </flow:flow-registry>
+    <flow-registry id="mainFlowRegistry" flow-builder-services="flowBuilderServices">
+        <flow-location id="home" path="/WEB-INF/flows/main-flow.xml"/>
+    </flow-registry>
 
-    <flow:flow-builder-services id="flowBuilderServices" view-factory-creator="mvcViewFactoryCreator"/>
+    <flow-builder-services id="flowBuilderServices" view-factory-creator="mvcViewFactoryCreator"/>
 
     <!--    <bean id="mvcViewFactoryCreator" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
             <property name="viewResolvers" ref="jspViewResolver"/>
         </bean>-->
 
-    <bean id="mvcViewFactoryCreator" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
-        <property name="viewResolvers">
-            <list>
-                <ref bean="jspViewResolver"/>
-            </list>
-        </property>
-    </bean>
+    <beans:bean id="mvcViewFactoryCreator" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
+        <beans:property name="viewResolvers">
+            <beans:list>
+                <beans:ref bean="jspViewResolver"/>
+            </beans:list>
+        </beans:property>
+    </beans:bean>
 
 
-</beans>
+</beans:beans>

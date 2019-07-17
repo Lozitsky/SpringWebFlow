@@ -66,6 +66,12 @@
             <scope>runtime</scope>
         </dependency>
 
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+
         <!--https://crunchify.com/java-how-to-configure-log4j-logger-property-correctly/ -->
         <!--<dependency>
             <groupId>log4j</groupId>
