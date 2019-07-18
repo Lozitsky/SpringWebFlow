@@ -7,15 +7,17 @@
        http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <flow-executor id="mainFlowExecutor" flow-registry="mainFlowRegistry">
-        <!--        <flow:flow-execution-listeners>
-                    <flow:listener ref="" criteria="*"/>
-                </flow:flow-execution-listeners>-->
-    </flow-executor>
+    <flow-executor id="mainFlowExecutor" flow-registry="mainFlowRegistry"/>
 
-    <flow-registry id="mainFlowRegistry" flow-builder-services="flowBuilderServices">
-        <flow-location id="home" path="/WEB-INF/flows/main-flow.xml"/>
+    <flow-registry id="mainFlowRegistry" flow-builder-services="flowBuilderServices" base-path="/WEB-INF/flows">
+<!--        <flow-location id="home" path="WEB-INF/flows/main-flow.xml"/>-->
+        <flow-location-pattern value="/**/*-flow.xml"/>
+<!--        <flow-location id="home" path="WEB-INF/**/*-flow.xml"/>-->
     </flow-registry>
+
+<!--    <flow-registry id="flowRegistry" base-path="/WEB-INF">
+    <flow-location-pattern value="/**/*-flow.xml" />
+    </flow-registry>-->
 
     <flow-builder-services id="flowBuilderServices" view-factory-creator="mvcViewFactoryCreator"/>
 

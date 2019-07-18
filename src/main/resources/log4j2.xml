@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="INFO">
+
+    <!-- Appenders -->
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout
+                    pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n" />
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <!-- Application Loggers -->
+        <Logger name="com.kirilo.springMVC" level="INFO">
+            <AppenderRef ref="Console" />
+        </Logger>
+
+        <!-- 3rdparty Loggers -->
+        <Logger name="org.springframework.core" level="INFO">
+            <AppenderRef ref="Console" />
+        </Logger>
+
+        <Logger name="org.springframework.beans" level="INFO">
+            <AppenderRef ref="Console" />
+        </Logger>
+
+        <Logger name="org.springframework.context" level="INFO">
+            <AppenderRef ref="Console" />
+        </Logger>
+
+        <Logger name="org.springframework.web" level="INFO">
+            <AppenderRef ref="Console" />
+        </Logger>
+
+        <Logger name="org.springframework.webflow" level="DEBUG">
+            <AppenderRef ref="Console" />
+        </Logger>
+
+        <!-- Root Logger -->
+        <Root level="INFO" additivity="false">
+            <AppenderRef ref="Console" />
+        </Root>
+    </Loggers>
+
+</Configuration>

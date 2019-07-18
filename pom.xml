@@ -12,7 +12,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <slf4j.version>1.7.26</slf4j.version>
+        <log4j.version>2.12.0</log4j.version>
         <spring-framework.version>5.1.6.RELEASE</spring-framework.version>
         <spring-webflow.version>2.5.1.RELEASE</spring-webflow.version>
     </properties>
@@ -37,10 +37,20 @@
             </dependency>
 
             <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-bom</artifactId>
+                <version>${log4j.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+
+<!--            <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-simple</artifactId>
                 <version>${slf4j.version}</version>
             </dependency>
+
+           -->
         </dependencies>
     </dependencyManagement>
 
@@ -53,17 +63,24 @@
         </dependency>
 
         <!--Logging-->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jcl-over-slf4j</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
+<!--        https://www.baeldung.com/slf4j-with-log4j2-logback -->
+<!--        https://logging.apache.org/log4j/2.0/maven-artifacts.html -->
+<!--        https://howtodoinjava.com/log4j/slf4j-vs-log4j-which-one-is-better/ -->
 
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>${slf4j.version}</version>
-            <scope>runtime</scope>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${log4j.version}</version>
         </dependency>
 
         <dependency>
@@ -73,7 +90,7 @@
         </dependency>
 
         <!--https://crunchify.com/java-how-to-configure-log4j-logger-property-correctly/ -->
-        <!--<dependency>
+<!--        <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>1.2.17</version>
@@ -101,6 +118,7 @@
     </dependencies>
 
 <!-- https://maven.apache.org/plugins/maven-compiler-plugin/examples/compile-using-different-jdk.html -->
+<!--    https://maven.apache.org/plugins/maven-jar-plugin/ -->
 <!--    https://medium.com/@kankvish/fixing-issue-the-environment-variable-java-home-is-not-correctly-set-b5f0b66a84d0 -->
     <!--                  building war                                                               -->
     <build>
@@ -110,8 +128,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-<!--                    <source>1.8</source>
-                    <target>1.8</target>-->
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                     <executable>${java.home}/bin/javac</executable>
                 </configuration>
             </plugin>
@@ -121,14 +139,9 @@
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                     <warSourceDirectory>web</warSourceDirectory>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>8</source>
-                    <target>8</target>
+                    <archive>
+                        <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+                    </archive>
                 </configuration>
             </plugin>
         </plugins>
