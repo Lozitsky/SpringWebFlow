@@ -34,9 +34,10 @@
     <footer>
             <%--        <form:checkbox path="admin"/>
                     <form:label path="admin">Admin</form:label>--%>
-        <a href="${flowExecutionUrl}&_eventId=createUser">Create user</a>
 
-        <input type="submit" class="btnLogin" value="Login" name="_eventId_submit" tabindex="4"/>
+        <input type="submit" class="btnLogin" value="Cancel" name="_eventId_cancel" tabindex="4"/>
+
+        <input type="submit" class="btnLogin" value="Create" name="_eventId_submit" tabindex="4"/>
 
     </footer>
 </form:form>

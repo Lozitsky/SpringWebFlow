@@ -7,9 +7,9 @@
        http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <flow-executor id="mainFlowExecutor" flow-registry="mainFlowRegistry"/>
+    <flow-executor id="loginFlowExecutor" flow-registry="loginFlowRegistry"/>
 
-    <flow-registry id="mainFlowRegistry" flow-builder-services="flowBuilderServices" base-path="/WEB-INF/flows">
+    <flow-registry id="loginFlowRegistry" flow-builder-services="flowBuilderServices" base-path="/WEB-INF/flows">
 <!--        <flow-location id="home" path="WEB-INF/flows/main-flow.xml"/>-->
         <flow-location-pattern value="/**/*-flow.xml"/>
 <!--        <flow-location id="home" path="WEB-INF/**/*-flow.xml"/>-->

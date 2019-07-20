@@ -17,11 +17,11 @@
     <mvc:resources mapping="/resources/**" location="/resources/"/>
 
     <bean id="flowHandlerMapping" class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
-        <property name="flowRegistry" ref="mainFlowRegistry"/>
+        <property name="flowRegistry" ref="loginFlowRegistry"/>
     </bean>
 
     <bean id="flowHandlerAdapter" class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
-        <property name="flowExecutor" ref="mainFlowExecutor"/>
+        <property name="flowExecutor" ref="loginFlowExecutor"/>
     </bean>
 
     <!--    <:bean id="jspViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
