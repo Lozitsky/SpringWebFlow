@@ -21,7 +21,7 @@
     </action-state>
 
     <end-state id="userCreated">
-        <output type="com.kirilo.springMVC.models.User" name="user2" value="flowScope.user"/>
+        <output name="user"/>
     </end-state>
 
     <end-state id="canceled"/>
