@@ -30,6 +30,11 @@
 
         <form:label path="password">Password:</form:label>
         <form:password path="password" placeholder="your password" required=""/>
+
+        <c:if test="${not empty message}">
+            <span style="float: right" class="error">${message}</span>
+        </c:if>
+
     </fieldset>
     <footer>
             <%--        <form:checkbox path="admin"/>

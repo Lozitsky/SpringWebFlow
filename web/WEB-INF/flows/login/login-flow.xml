@@ -26,7 +26,9 @@
     <action-state id="actionCheckLogin">
         <evaluate expression="userService.checkUser(user)"/>
         <transition on="success" to="main"/>
-        <transition on="failed" to="loginForm"/>
+        <transition on="failed" to="loginForm">
+            <set name="flashScope.message" value="'Check user!'"/>
+        </transition>
     </action-state>
 
     <view-state id="home">

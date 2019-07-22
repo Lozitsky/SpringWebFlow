@@ -16,8 +16,12 @@
     <action-state id="createUserAction">
         <evaluate expression="userService.createUser(user)"/>
 
-        <transition on="success" to="userCreated"/>
-        <transition on="exist" to="createUserForm"/>
+        <transition on="success" to="userCreated">
+            <set name="flashScope.message" value="'User Created!'"/>
+        </transition>
+        <transition on="exist" to="createUserForm">
+            <set name="flashScope.message" value="'User already exist!'"/>
+        </transition>
     </action-state>
 
     <end-state id="userCreated">
