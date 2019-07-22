@@ -13,9 +13,14 @@
         <transition on="submit" to="actionCheckLogin"/>
         <transition on="createUser" to="createUserFlow"/>
     </view-state>
-    
+
+
     <subflow-state id="createUserFlow" subflow="create-user">
-        <transition on="end" to="loginForm"/>
+        <input name="user"/>
+        <transition on="userCreated" to="loginForm">
+<!--            <set name="user" value="flowScope.user"/>-->
+        </transition>
+        <transition on="canceled" to="loginForm"/>
     </subflow-state>
 
     <action-state id="actionCheckLogin">

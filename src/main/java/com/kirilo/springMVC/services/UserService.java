@@ -23,7 +23,7 @@ public class UserService {
         return users.contains(user) ? "success" : "failed";
     }
 
-    public void createUser(User user) {
-        users.add(user);
+    public String createUser(User user) {
+        return users.contains(user) ? "exist" : users.add(user) ? "success" : "failed";
     }
 }
