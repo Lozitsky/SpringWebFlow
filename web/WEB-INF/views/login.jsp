@@ -5,9 +5,10 @@
   Time: 23:21
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -25,10 +26,19 @@
 <%--@elvariable id="user" type="com.kirilo.springMVC.models.User"--%>
 <form:form method="post" modelAttribute="user" class="box login">
     <fieldset class="boxBody">
-        <form:label path="name">Username:</form:label>
+        <span style="float: right">
+            <a href="?lang=en"><spring:message code="en"/></a>
+            <a href="?lang=ru"><spring:message code="ru"/></a>
+            <a href="?lang=ua"><spring:message code="ua"/></a>
+        </span>
+        <form:label path="name">
+            <spring:message code="username"/>
+        </form:label>
         <form:input path="name" placeholder="your name" required=""/>
 
-        <form:label path="password">Password:</form:label>
+        <form:label path="password">
+            <spring:message code="password"/>
+        </form:label>
         <form:password path="password" placeholder="your password" required=""/>
 
         <c:if test="${not empty message}">
@@ -39,9 +49,12 @@
     <footer>
             <%--        <form:checkbox path="admin"/>
                     <form:label path="admin">Admin</form:label>--%>
-        <a href="${flowExecutionUrl}&_eventId=createUser">Create user</a>
+        <a href="${flowExecutionUrl}&_eventId=createUser">
+            <spring:message code="create_user"/> </a>
 
-        <input type="submit" class="btnLogin" value="Login" name="_eventId_submit" tabindex="4"/>
+        <input type="submit" class="btnLogin"
+               value="<spring:message code="login"/>"
+               name="_eventId_submit" tabindex="4"/>
 
     </footer>
 </form:form>

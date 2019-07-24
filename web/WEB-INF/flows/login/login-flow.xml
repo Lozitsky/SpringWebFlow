@@ -27,7 +27,7 @@
         <evaluate expression="userService.checkUser(user, flowRequestContext)"/>
         <transition on="success" to="main"/>
         <transition on="failed" to="loginForm">
-            <set name="flashScope.message" value="'Check user!'"/>
+            <set name="flashScope.message" value="resourceBundle.check_user"/>
         </transition>
     </action-state>
 
