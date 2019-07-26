@@ -26,7 +26,12 @@
     <action-state id="actionCheckLogin">
         <evaluate expression="userService.checkUser(user, flowRequestContext)"/>
         <transition on="success" to="main"/>
-        <transition on="failed" to="loginForm">
+<!--        <transition on="failed" to="loginForm">
+            <set name="flashScope.message" value="resourceBundle.check_user"/>
+        </transition>-->
+        <transition on="failed" to="loginForm"/>
+
+        <transition on-exception="com.kirilo.springMVC.exceptions.UserExistException" to="loginForm">
             <set name="flashScope.message" value="resourceBundle.check_user"/>
         </transition>
     </action-state>
@@ -45,5 +50,9 @@
         </end-state>-->
 
     <end-state id="cancel" view="cancel"/>
+
+    <global-transitions>
+        <transition on-exception="java.lang.Exception" to="loginForm"/>
+    </global-transitions>
 
 </flow>

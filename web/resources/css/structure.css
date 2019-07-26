@@ -166,6 +166,10 @@ footer#main{
     color: red;
 }
 
+ul.error li {
+    list-style: none;
+}
+
 .checkAdmin {
     padding: 11px 16px;
     margin-left: 12px;

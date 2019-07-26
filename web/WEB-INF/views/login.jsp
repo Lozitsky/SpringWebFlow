@@ -41,8 +41,16 @@
         </form:label>
         <form:password path="password" placeholder="your password" required=""/>
 
-        <c:if test="${not empty message}">
+<%--        <c:if test="${not empty message}">
             <span style="float: right" class="error">${message}</span>
+        </c:if>--%>
+
+        <c:if test="${not empty flowRequestContext.messageContext.allMessages}">
+            <ul class="error rLink">
+                <c:forEach items="${flowRequestContext.messageContext.allMessages}" var="message">
+                    <li>${message.text}</li>
+                </c:forEach>
+            </ul>
         </c:if>
 
     </fieldset>
