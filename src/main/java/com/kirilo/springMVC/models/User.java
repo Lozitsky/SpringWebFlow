@@ -27,12 +27,12 @@ public class User implements Serializable {
         this.admin = admin;
     }
 
-    public String getName() {
+    public String getUsername() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.name = username;
     }
 
     public String getPassword() {

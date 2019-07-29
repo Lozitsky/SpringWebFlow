@@ -1,0 +1,22 @@
+/*@import url("../resources/../dijit.css");*/
+/*@import url(../resources/../tundra.css);*/
+
+/*.tundra .dijitTextBoxFocused {
+
+    !*border-color:#406b9b;*!
+    border: 6px solid #fc2323 !important;
+}
+
+.tundra .dijitTextBoxFocused .dijitButtonNode {
+    border: 6px solid #fc2323 !important;
+}*/
+
+.tundra .dijitTextBox {
+    /*border:6px solid #b3b3b3;*/
+    border: 6px solid #F7F9FA !important;
+}
+
+.dijitTextBox {
+    width: 24em !important;
+}
+

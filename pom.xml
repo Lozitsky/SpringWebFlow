@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -44,17 +44,18 @@
                 <type>pom</type>
             </dependency>
 
-<!--            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-simple</artifactId>
-                <version>${slf4j.version}</version>
-            </dependency>
+            <!--            <dependency>
+                            <groupId>org.slf4j</groupId>
+                            <artifactId>slf4j-simple</artifactId>
+                            <version>${slf4j.version}</version>
+                        </dependency>
 
-           -->
+                       -->
         </dependencies>
     </dependencyManagement>
 
     <dependencies>
+        <!-- Spring -->
         <!-- https://mvnrepository.com/artifact/org.springframework.webflow/spring-webflow -->
         <dependency>
             <groupId>org.springframework.webflow</groupId>
@@ -62,10 +63,17 @@
             <version>${spring-webflow.version}</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.springframework.webflow/spring-js-resources -->
+        <dependency>
+            <groupId>org.springframework.webflow</groupId>
+            <artifactId>spring-js-resources</artifactId>
+            <version>${spring-webflow.version}</version>
+        </dependency>
+
         <!--Logging-->
-<!--        https://www.baeldung.com/slf4j-with-log4j2-logback -->
-<!--        https://logging.apache.org/log4j/2.0/maven-artifacts.html -->
-<!--        https://howtodoinjava.com/log4j/slf4j-vs-log4j-which-one-is-better/ -->
+        <!--        https://www.baeldung.com/slf4j-with-log4j2-logback -->
+        <!--        https://logging.apache.org/log4j/2.0/maven-artifacts.html -->
+        <!--        https://howtodoinjava.com/log4j/slf4j-vs-log4j-which-one-is-better/ -->
 
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
@@ -90,36 +98,36 @@
         </dependency>
 
         <!--https://crunchify.com/java-how-to-configure-log4j-logger-property-correctly/ -->
-<!--        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>javax.mail</groupId>
-                    <artifactId>mail</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>javax.jms</groupId>
-                    <artifactId>jms</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.sun.jdmk</groupId>
-                    <artifactId>jmxtools</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.sun.jmx</groupId>
-                    <artifactId>jmxri</artifactId>
-                </exclusion>
-            </exclusions>
-            <scope>runtime</scope>
-        </dependency>-->
+        <!--        <dependency>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                    <version>1.2.17</version>
+                    <exclusions>
+                        <exclusion>
+                            <groupId>javax.mail</groupId>
+                            <artifactId>mail</artifactId>
+                        </exclusion>
+                        <exclusion>
+                            <groupId>javax.jms</groupId>
+                            <artifactId>jms</artifactId>
+                        </exclusion>
+                        <exclusion>
+                            <groupId>com.sun.jdmk</groupId>
+                            <artifactId>jmxtools</artifactId>
+                        </exclusion>
+                        <exclusion>
+                            <groupId>com.sun.jmx</groupId>
+                            <artifactId>jmxri</artifactId>
+                        </exclusion>
+                    </exclusions>
+                    <scope>runtime</scope>
+                </dependency>-->
 
     </dependencies>
 
-<!-- https://maven.apache.org/plugins/maven-compiler-plugin/examples/compile-using-different-jdk.html -->
-<!--    https://maven.apache.org/plugins/maven-jar-plugin/ -->
-<!--    https://medium.com/@kankvish/fixing-issue-the-environment-variable-java-home-is-not-correctly-set-b5f0b66a84d0 -->
+    <!-- https://maven.apache.org/plugins/maven-compiler-plugin/examples/compile-using-different-jdk.html -->
+    <!--    https://maven.apache.org/plugins/maven-jar-plugin/ -->
+    <!--    https://medium.com/@kankvish/fixing-issue-the-environment-variable-java-home-is-not-correctly-set-b5f0b66a84d0 -->
     <!--                  building war                                                               -->
     <build>
         <plugins>

@@ -31,10 +31,10 @@
             <a href="?lang=ru"><spring:message code="ru"/></a>
             <a href="?lang=ua"><spring:message code="ua"/></a>
         </span>
-        <form:label path="name">
+        <form:label path="username">
             <spring:message code="username"/>
         </form:label>
-        <form:input path="name" placeholder="your name" required=""/>
+        <form:input path="username" placeholder="your name" required=""/>
 
         <form:label path="password">
             <spring:message code="password"/>
