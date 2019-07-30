@@ -14,7 +14,7 @@
 
     <context:component-scan base-package="com.kirilo.springMVC"/>
 
-    <mvc:resources mapping="/resources/**" location="/resources/, classpath*:/**/*, classpath:/META-INF/web-resources/"/>
+    <mvc:resources mapping="/resources/**" location="/resources/, classpath:/../resources, classpath:/META-INF/web-resources/"/>
 
     <bean id="flowHandlerMapping" class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
         <property name="flowRegistry" ref="loginFlowRegistry"/>
@@ -36,7 +36,14 @@
     </bean>
 
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-        <property name="basename" value="/WEB-INF/locales/messages"/>
+<!--        <property name="basename" value="/WEB-INF/locales/messages"/>-->
+        <property name="basenames">
+            <list>
+                <value>classpath:ValidationMessages</value>
+                <value>/WEB-INF/locales/messages</value>
+            </list>
+        </property>
+        <property name="fileEncodings" value="UTF-8"/>
         <property name="defaultEncoding" value="UTF-8"/>
     </bean>
 
@@ -45,7 +52,7 @@
     </bean>
 
     <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
-        <property name="defaultLocale" value="ua"/>
+        <property name="defaultLocale" value="uk"/>
     </bean>
 
     <mvc:interceptors>

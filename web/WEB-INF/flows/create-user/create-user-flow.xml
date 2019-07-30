@@ -10,7 +10,7 @@
 
     <view-state id="createUserForm" view="create-user" model="user">
         <transition on="submit" to="createUserAction"/>
-        <transition on="cancel" to="canceled"/>
+        <transition on="cancel" to="canceled" validate="false"/>
     </view-state>
 
     <action-state id="createUserAction">

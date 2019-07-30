@@ -35,7 +35,7 @@
         <span style="float: right">
             <a href="?lang=en"><spring:message code="en"/></a>
             <a href="?lang=ru"><spring:message code="ru"/></a>
-            <a href="?lang=ua"><spring:message code="ua"/></a>
+            <a href="?lang=ua"><spring:message code="uk"/></a>
         </span>
 
 

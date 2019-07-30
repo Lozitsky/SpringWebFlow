@@ -5,7 +5,7 @@
   Time: 23:21
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
@@ -29,7 +29,7 @@
         <span style="float: right">
             <a href="?lang=en"><spring:message code="en"/></a>
             <a href="?lang=ru"><spring:message code="ru"/></a>
-            <a href="?lang=ua"><spring:message code="ua"/></a>
+            <a href="?lang=ua"><spring:message code="uk"/></a>
         </span>
         <form:label path="username">
             <spring:message code="username"/>
