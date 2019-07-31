@@ -8,6 +8,11 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MainController {
 
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String main() {
+        return "redirect:login-flow";
+    }
+
     @RequestMapping(value = "/downloadPDF", method = RequestMethod.GET)
     public ModelAndView downloadPDF() {
         return new ModelAndView("pdfView");
